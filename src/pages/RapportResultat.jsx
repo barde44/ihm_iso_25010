@@ -1,15 +1,13 @@
-import React from "react";
-import { Link, useLocation } from "react-router-dom";
+
 import { Bar, Radar, Line } from "react-chartjs-2";
 import { Chart, registerables } from "chart.js";
 import { FaDownload, FaShieldAlt, FaBolt, FaCogs } from "react-icons/fa";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 Chart.register(...registerables);
 
 const RapportResultat = () => {
-  const location = useLocation();
-  const isActive = (path) =>
-    location.pathname === path ? "text-[#8B5CF6] border-b border-[#8B5CF6] pb-1" : "hover:text-[#8B5CF6]";
 
   const radarData = {
     labels: [
@@ -91,40 +89,10 @@ const RapportResultat = () => {
   };
 
   return (
-    <div className="bg-gradient-to-b from-[#0F172A] to-[#1E293B] text-white min-h-screen font-['Poppins'] pb-20">
-      {/* Barre de navigation */}
-      <header className="fixed top-0 left-0 w-full bg-[#0F172A]/90 backdrop-blur-md border-b border-white/10 z-50">
-        <div className="max-w-7xl mx-auto flex items-center justify-between px-8 py-4">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-[#8B5CF6] rounded-md shadow-md shadow-[#8B5CF6]/30"></div>
-            <h1 className="font-semibold text-lg">ISOQualityApp</h1>
-          </div>
+    <div className="bg-linear-to-b from-[#0F172A] to-[#1E293B] text-white min-h-screen font-['Poppins'] pb-20">
 
-          <nav className="flex items-center gap-8 text-gray-300 text-sm font-medium">
-            <Link to="/" className={isActive("/")}>
-              Accueil
-            </Link>
-            <Link to="/evaluation" className={isActive("/evaluation")}>
-              Évaluation
-            </Link>
-            <Link to="/tableau" className={isActive("/tableau")}>
-              Tableau de bord
-            </Link>
-            <Link to="/rapport" className={isActive("/rapport")}>
-              Rapports / Résultats
-            </Link>
-            <Link to="/parametre" className={isActive("/parametre")}>
-              Paramètres
-            </Link>
-          </nav>
+      <Navbar />
 
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center">👤</div>
-          </div>
-        </div>
-      </header>
-
-      {/* En-tête principal */}
       <section className="pt-32 px-8 max-w-7xl mx-auto flex justify-between items-center mb-10">
         <div>
           <h2 className="text-3xl font-semibold mb-2">Rapports et Résultats d’Évaluation</h2>
@@ -289,24 +257,8 @@ const RapportResultat = () => {
           />
         </div>
       </div>
-{/* Pied de page */}
-      <footer className="border-t border-white/10 py-6 text-center text-sm text-gray-400">
-        <div className="flex justify-center gap-6 mb-2">
-          <a href="#" className="hover:text-white">
-            À propos
-          </a>
-          <a href="#" className="hover:text-white">
-            Confidentialité
-          </a>
-          <a href="#" className="hover:text-white">
-            Contact
-          </a>
-          <a href="#" className="hover:text-white">
-            Support
-          </a>
-        </div>
-        <p>© 2025 ISOQualityApp — Tous droits réservés.</p>
-      </footer>
+
+      <Footer />
     </div>
   );
 };

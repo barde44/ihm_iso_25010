@@ -1,5 +1,3 @@
-import React from "react";
-import { Link, useLocation } from "react-router-dom";
 import {
   FaChartBar,
   FaLock,
@@ -23,14 +21,10 @@ import {
   PolarRadiusAxis,
   Radar,
 } from "recharts";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
-const TableauDeBord = () => {
-  const location = useLocation();
-
-  const isActive = (path) =>
-    location.pathname === path
-      ? "text-[#8B5CF6] border-b border-[#8B5CF6] pb-1"
-      : "hover:text-[#8B5CF6]";
+const Dashboard = () => {
 
   // Données simulées pour les cartes
   const scores = [
@@ -68,42 +62,9 @@ const TableauDeBord = () => {
   ];
 
   return (
-    <div className="bg-[#0F172A] text-white min-h-screen font-['Poppins']">
-      {/* Barre de navigation */}
-      <header className="fixed top-0 left-0 w-full bg-[#0F172A]/90 backdrop-blur-md border-b border-white/10 z-50">
-        <div className="max-w-7xl mx-auto flex items-center justify-between px-8 py-4">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-blue-600 rounded-md"></div>
-            <h1 className="font-semibold text-lg">ISOQualityApp</h1>
-          </div>
+   <div className="min-h-screen font-['Poppins'] bg-white text-gray-900 dark:bg-[#0F172A] dark:text-white">
 
-          <nav className="flex items-center gap-8 text-gray-300 text-sm font-medium">
-            <Link to="/" className={isActive("/")}>
-              Accueil
-            </Link>
-            <Link to="/evaluation" className={isActive("/evaluation")}>
-              Évaluation
-            </Link>
-            <Link to="/tableau" className={isActive("/tableau")}>
-              Tableau de bord
-            </Link>
-            <Link to="/rapport" className={isActive("/rapport")}>
-              Rapports / Résultats
-            </Link>
-            <Link to="/parametre" className={isActive("/parametre")}>
-              Paramètres
-            </Link>
-          </nav>
-
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center">
-              👤
-            </div>
-          </div>
-        </div>
-      </header>
-
-      {/* Contenu principal */}
+      <Navbar />
       <main className="pt-32 px-8 max-w-7xl mx-auto">
         <h2 className="text-3xl font-semibold mb-8 text-[#8B5CF6]">
           Tableau de bord ISO 25010
@@ -114,7 +75,7 @@ const TableauDeBord = () => {
           {scores.map((item, i) => (
             <div
               key={i}
-              className="bg-[#1E293B]/70 p-6 rounded-2xl shadow-lg border border-[#8B5CF6]/10 hover:shadow-[#8B5CF6]/30 transition-all transform hover:-translate-y-2"
+              className="bg-white/60 dark:bg-[#1E293B]/70 p-6 rounded-2xl shadow-lg border border-gray-200/20 dark:border-[#8B5CF6]/10 hover:shadow-[#8B5CF6]/30 transition-all transform hover:-translate-y-2"
             >
               <div className="flex items-center justify-between mb-4">
                 <div className="text-3xl" style={{ color: item.color }}>
@@ -124,8 +85,8 @@ const TableauDeBord = () => {
                   {item.value}%
                 </span>
               </div>
-              <h4 className="font-semibold">{item.title}</h4>
-              <div className="w-full bg-gray-700 h-2 rounded-full mt-2">
+              <h4 className="font-semibold text-gray-900 dark:text-gray-200">{item.title}</h4>
+              <div className="w-full bg-gray-200 dark:bg-gray-700 h-2 rounded-full mt-2">
                 <div
                   className="h-2 rounded-full"
                   style={{ width: `${item.value}%`, backgroundColor: item.color }}
@@ -135,30 +96,32 @@ const TableauDeBord = () => {
           ))}
         </div>
 
-        {/* Résumé & Alertes */}
-        <section className="bg-[#1E293B]/60 rounded-2xl p-8 shadow-md border border-[#8B5CF6]/10 mb-12">
-          <h3 className="text-xl font-semibold mb-4 text-[#10B981] flex items-center gap-2">
-            <FaChartBar /> Résumé des évaluations
-          </h3>
 
-          <ul className="space-y-3">
-            {alerts.map((alert, i) => (
-              <li
-                key={i}
-                className="flex items-start gap-3 bg-[#0F172A]/70 p-4 rounded-lg border border-[#8B5CF6]/20"
-              >
-                <div className="text-2xl">{alert.icon}</div>
-                <div>
-                  <h4 className="font-medium">{alert.type}</h4>
-                  <p className="text-gray-400 text-sm">{alert.message}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </section>
+        {/* Résumé & Alertes */}
+    <section className="bg-white dark:bg-[#1E293B]/60 rounded-2xl p-8 shadow-md border border-[#8B5CF6]/10 dark:border-[#8B5CF6]/20 mb-12">
+      <h3 className="text-xl font-semibold mb-4 text-[#10B981] flex items-center gap-2">
+        <FaChartBar /> Résumé des évaluations
+      </h3>
+
+      <ul className="space-y-3">
+        {alerts.map((alert, i) => (
+          <li
+            key={i}
+            className="flex items-start gap-3 bg-gray-100/80 dark:bg-[#0F172A]/70 p-4 rounded-lg border border-gray-300/30 dark:border-[#8B5CF6]/20"
+          >
+            <div className="text-2xl">{alert.icon}</div>
+            <div>
+              <h4 className="font-medium text-gray-900 dark:text-gray-200">{alert.type}</h4>
+              <p className="text-gray-600 dark:text-gray-400 text-sm">{alert.message}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </section>
+
 
         {/* Graphique de tendance */}
-        <section className="bg-gradient-to-br from-[#1E293B] to-[#334155] p-8 rounded-2xl shadow-lg border border-[#10B981]/20 mb-16">
+        <section className="bg-linear-to-br from-[#1E293B] to-[#334155] p-8 rounded-2xl shadow-lg border border-[#10B981]/20 mb-16">
           <h3 className="text-xl font-semibold mb-6 text-[#10B981] flex items-center gap-2">
             <FaChartBar /> Analyse de la performance
           </h3>
@@ -190,16 +153,17 @@ const TableauDeBord = () => {
         </section>
 
         {/* Graphique radar ISO 25010 */}
-        <section className="bg-[#1E293B]/60 p-8 rounded-2xl shadow-lg border border-[#8B5CF6]/20 mb-20">
-          <h3 className="text-xl font-semibold mb-6 text-[#8B5CF6] flex items-center gap-2">
-            <FaChartBar /> Vue globale des critères ISO 25010
-          </h3>
+<section className="bg-white dark:bg-[#1E293B]/60 p-8 rounded-2xl shadow-lg border border-[#8B5CF6]/20 mb-20">
+<h3 className="text-xl font-semibold mb-6 flex items-center gap-2 text-[#8B5CF6] dark:text-[#8B5CF6]">
+  <FaChartBar /> Vue globale des critères ISO 25010
+</h3>
+
 
           <div className="flex justify-center">
             <ResponsiveContainer width="100%" height={400}>
               <RadarChart data={radarData}>
                 <PolarGrid stroke="#334155" />
-                <PolarAngleAxis dataKey="critère" tick={{ fill: "#E5E7EB", fontSize: 12 }} />
+                <PolarAngleAxis dataKey="critère" tick={{ fill: "#E5E7EB", fontSize: 15 }} />
                 <PolarRadiusAxis angle={30} domain={[0, 100]} stroke="#9CA3AF" />
                 <Radar
                   name="Score ISO"
@@ -215,26 +179,10 @@ const TableauDeBord = () => {
         </section>
       </main>
 
-      {/* Pied de page */}
-      <footer className="border-t border-white/10 py-6 text-center text-sm text-gray-400">
-        <div className="flex justify-center gap-6 mb-2">
-          <a href="#" className="hover:text-white">
-            À propos
-          </a>
-          <a href="#" className="hover:text-white">
-            Confidentialité
-          </a>
-          <a href="#" className="hover:text-white">
-            Contact
-          </a>
-          <a href="#" className="hover:text-white">
-            Support
-          </a>
-        </div>
-        <p>© 2025 ISOQualityApp — Tous droits réservés.</p>
-      </footer>
+
+      <Footer />
     </div>
   );
 };
 
-export default TableauDeBord;
+export default Dashboard;
