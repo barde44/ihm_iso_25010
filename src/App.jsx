@@ -5,7 +5,7 @@ import RapportResultat from './pages/RapportResultat'
 import Evaluation from './pages/Evaluation'
 import Dashboard from './pages/Dashboard'
 import Parametre from './pages/Parametres'
-import Login from './pages/auth/Login'
+import Signin from './pages/auth/Signin'
 import Signup from './pages/auth/Signup'
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
     <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
     <Router>
       <Routes>
-        <Route path="/login" element={<Login />} />
+        <Route path="/signin" element={<Signin />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/" element={<Accueil />} />
         <Route path="/evaluation" element={<Evaluation />} />

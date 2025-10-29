@@ -23,8 +23,14 @@ import {
 } from "recharts";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { useTheme } from '../context/ThemeContext'
+
 
 const Dashboard = () => {
+
+const { theme } = useTheme()
+const isDarkMode = theme === 'dark'
+const color = (light, dark) => (isDarkMode ? dark : light);
 
   // Données simulées pour les cartes
   const scores = [
@@ -121,62 +127,104 @@ const Dashboard = () => {
 
 
         {/* Graphique de tendance */}
-        <section className="bg-linear-to-br from-[#1E293B] to-[#334155] p-8 rounded-2xl shadow-lg border border-[#10B981]/20 mb-16">
-          <h3 className="text-xl font-semibold mb-6 text-[#10B981] flex items-center gap-2">
-            <FaChartBar /> Analyse de la performance
-          </h3>
+    <section
+      className={`p-8 rounded-2xl shadow-lg border mb-16 transition-all duration-500
+      ${isDarkMode 
+        ? "bg-linear-to-br from-[#0F172A] to-[#1E293B] border-[#10B981]/20" 
+        : "bg-linear-to-br from-white to-gray-50 border-gray-200"}`}
+    >
+      <h3
+        className={`text-xl font-semibold mb-6 flex items-center gap-2
+        ${isDarkMode ? "text-[#10B981]" : "text-[#065F46]"}`}
+      >
+        <FaChartBar /> Analyse de la performance
+      </h3>
 
-          <div className="w-full h-72">
-            <ResponsiveContainer width="100%" height="100%">
-              <LineChart data={lineData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#334155" />
-                <XAxis dataKey="mois" stroke="#9CA3AF" />
-                <YAxis stroke="#9CA3AF" />
-                <Tooltip />
-                <Line
-                  type="monotone"
-                  dataKey="Performance"
-                  stroke="#10B981"
-                  strokeWidth={2}
-                  dot={{ r: 4 }}
-                />
-                <Line
-                  type="monotone"
-                  dataKey="Sécurité"
-                  stroke="#8B5CF6"
-                  strokeWidth={2}
-                  dot={{ r: 4 }}
-                />
-              </LineChart>
-            </ResponsiveContainer>
-          </div>
-        </section>
+      <div className="w-full h-72">
+        <ResponsiveContainer width="100%" height="100%">
+          <LineChart data={lineData}>
+            <CartesianGrid
+              strokeDasharray="3 3"
+              stroke={isDarkMode ? "#1E293B" : "#E5E7EB"}
+            />
+            <XAxis dataKey="mois" stroke={isDarkMode ? "#CBD5E1" : "#374151"} />
+            <YAxis stroke={isDarkMode ? "#CBD5E1" : "#374151"} />
+            <Tooltip
+              contentStyle={{
+                backgroundColor: isDarkMode ? "#1E293B" : "#F9FAFB",
+                color: isDarkMode ? "#E5E7EB" : "#111827",
+                borderRadius: "10px",
+                border: `1px solid ${isDarkMode ? "#334155" : "#D1D5DB"}`
+              }}
+            />
+            <Line
+              type="monotone"
+              dataKey="Performance"
+              stroke="#10B981"
+              strokeWidth={2}
+              dot={{ r: 4 }}
+            />
+            <Line
+              type="monotone"
+              dataKey="Sécurité"
+              stroke="#8B5CF6"
+              strokeWidth={2}
+              dot={{ r: 4 }}
+            />
+          </LineChart>
+        </ResponsiveContainer>
+      </div>
+    </section>
 
         {/* Graphique radar ISO 25010 */}
-<section className="bg-white dark:bg-[#1E293B]/60 p-8 rounded-2xl shadow-lg border border-[#8B5CF6]/20 mb-20">
-<h3 className="text-xl font-semibold mb-6 flex items-center gap-2 text-[#8B5CF6] dark:text-[#8B5CF6]">
-  <FaChartBar /> Vue globale des critères ISO 25010
-</h3>
+  <section
+      className={`p-8 rounded-2xl shadow-lg border mb-20 transition-all duration-500 
+      ${isDarkMode 
+        ? "bg-[#1E293B]/60 border-[#8B5CF6]/20" 
+        : "bg-white border-gray-200/70"}`}
+    >
+      <h3
+        className={`text-xl font-semibold mb-6 flex items-center gap-2 
+        ${isDarkMode ? "text-[#8B5CF6]" : "text-[#6D28D9]"}`}
+      >
+        <FaChartBar /> Vue globale des critères ISO 25010
+      </h3>
 
-
-          <div className="flex justify-center">
-            <ResponsiveContainer width="100%" height={400}>
-              <RadarChart data={radarData}>
-                <PolarGrid stroke="#334155" />
-                <PolarAngleAxis dataKey="critère" tick={{ fill: "#E5E7EB", fontSize: 15 }} />
-                <PolarRadiusAxis angle={30} domain={[0, 100]} stroke="#9CA3AF" />
-                <Radar
-                  name="Score ISO"
-                  dataKey="score"
-                  stroke="#8B5CF6"
-                  fill="#8B5CF6"
-                  fillOpacity={0.4}
-                />
-                <Tooltip />
-              </RadarChart>
-            </ResponsiveContainer>
-          </div>
-        </section>
+      <div className="flex justify-center">
+        <ResponsiveContainer width="100%" height={400}>
+          <RadarChart data={radarData}>
+            <PolarGrid stroke={color("#E5E7EB", "#334155")} />
+            <PolarAngleAxis
+              dataKey="critère"
+              tick={{
+                fill: color("#1E293B", "#E5E7EB"),
+                fontSize: 15,
+              }}
+            />
+            <PolarRadiusAxis
+              angle={30}
+              domain={[0, 100]}
+              stroke={color("#9CA3AF", "#94A3B8")}
+            />
+            <Radar
+              name="Score ISO"
+              dataKey="score"
+              stroke="#8B5CF6"
+              fill="#8B5CF6"
+              fillOpacity={0.4}
+            />
+            <Tooltip
+              contentStyle={{
+                backgroundColor: color("#F9FAFB", "#1E293B"),
+                color: color("#111827", "#E5E7EB"),
+                borderRadius: "10px",
+                border: `1px solid ${color("#E5E7EB", "#334155")}`,
+              }}
+            />
+          </RadarChart>
+        </ResponsiveContainer>
+      </div>
+    </section>
       </main>
 
 

@@ -1,7 +1,7 @@
 import logo from '../../assets/logo.png'
 import NavBarMinimal from '../../components/NavBarMinimal';
 
-function Login() {
+function Signin() {
   return (
     <div className="flex min-h-screen flex-col bg-white dark:bg-gray-900 transition-colors duration-300">
       
@@ -107,4 +107,4 @@ function Login() {
   )
 }
 
-export default Login;
+export default Signin;

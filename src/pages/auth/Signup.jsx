@@ -137,6 +137,17 @@ function Signup() {
       </button>
     </div>
   </form>
+
+    {/* Lien vers connexion */}
+  <p className="mt-6 text-center text-sm text-gray-500 dark:text-gray-400">
+    Vous avez un compte?{' '}
+    <a
+      href="/signin"
+      className="font-semibold text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-300"
+    >
+      Connectez vous un ici
+    </a>
+  </p>
 </div>
 
     </div>
