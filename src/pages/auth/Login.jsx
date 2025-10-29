@@ -1,5 +1,5 @@
 import logo from '../../assets/logo.png'
-import NavbarMinimal from '../../components/NavbarMinimal'
+import NavbarMinimal from '../../components/NavbarMinimal';
 
 function Login() {
   return (
@@ -107,4 +107,4 @@ function Login() {
   )
 }
 
-export default Login
+export default Login;
