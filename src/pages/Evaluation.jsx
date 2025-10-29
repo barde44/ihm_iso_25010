@@ -13,7 +13,7 @@ import Navbar from "../components/Navbar";
 const Evaluation = () => {
 
   return (
-    <div className="bg-white dark:bg-[#0F172A] text-white min-h-screen font-['Poppins']">
+    <div className="bg-white dark:bg-[#0F172A] text-white min-h-screen">
 
       <Navbar />
 

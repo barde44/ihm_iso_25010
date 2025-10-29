@@ -89,7 +89,7 @@ const RapportResultat = () => {
   };
 
   return (
-    <div className="bg-linear-to-b from-[#0F172A] to-[#1E293B] text-white min-h-screen font-['Poppins'] pb-20">
+    <div className="bg-linear-to-b from-[#0F172A] to-[#1E293B] text-white ">
 
       <Navbar />
 

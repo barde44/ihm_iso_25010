@@ -19,7 +19,9 @@ export default function Parametres() {
   const [auth2FA, setAuth2FA] = useState(false);
 
   return (
+
     <div className={`min-h-screen ${darkMode ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-900"}`}>
+
       <Navbar />
       <div className="max-w-6xl mx-auto p-8">
         <h1 className="text-3xl font-bold mb-8">Paramètres</h1>

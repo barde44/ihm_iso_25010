@@ -62,7 +62,7 @@ const Dashboard = () => {
   ];
 
   return (
-   <div className="min-h-screen font-['Poppins'] bg-white text-gray-900 dark:bg-[#0F172A] dark:text-white">
+   <div className="min-h-screen bg-white text-gray-900 dark:bg-[#0F172A] dark:text-white">
 
       <Navbar />
       <main className="pt-32 px-8 max-w-7xl mx-auto">

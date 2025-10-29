@@ -34,7 +34,7 @@ const Navbar = () => {
         
 
         {/* Navigation */}
-        <nav className="flex items-center gap-8 text-gray-700 dark:text-gray-300 text-sm font-medium">
+        <nav className="flex items-center gap-8 text-gray-700 dark:text-gray-300 text-base font-medium">
           <Link to="/" className={isActive("/")}>
             Accueil
           </Link>
@@ -69,7 +69,6 @@ const Navbar = () => {
     </div>
 
     </div>
-
 
   </div>
 

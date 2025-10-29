@@ -1,5 +1,7 @@
 import logo from '../../assets/logo.png'
 import NavBarMinimal from '../../components/NavBarMinimal';
+import { useState } from 'react';
+
 
 function Signup() {
   const [formData, setFormData] = useState({
