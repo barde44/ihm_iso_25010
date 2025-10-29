@@ -1,5 +1,5 @@
 import logo from '../../assets/logo.png'
-import NavbarMinimal from '../../components/NavbarMinimal';
+import NavBarMinimal from '../../components/NavBarMinimal';
 
 function Signup() {
   const [formData, setFormData] = useState({
@@ -26,7 +26,7 @@ function Signup() {
   return (
     <div className="flex min-h-full flex-col justify-center px-6 py-20 lg:px-8 bg-white dark:bg-gray-900 transition-colors duration-300">
       
-       <NavbarMinimal />
+       <NavBarMinimal />
       {/* Logo et titre */}
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
         <img

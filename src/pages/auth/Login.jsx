@@ -1,12 +1,12 @@
 import logo from '../../assets/logo.png'
-import NavbarMinimal from '../../components/NavbarMinimal';
+import NavBarMinimal from '../../components/NavBarMinimal';
 
 function Login() {
   return (
     <div className="flex min-h-screen flex-col bg-white dark:bg-gray-900 transition-colors duration-300">
       
       {/* Navbar */}
-      <NavbarMinimal />
+      <NavBarMinimal />
 
       {/* Contenu centré verticalement avec un peu plus de padding-top */}
       <div className="flex flex-col justify-center flex-1 px-6 py-3 lg:px-8 mt-20">
