@@ -1,6 +1,5 @@
 import logo from '../../assets/logo.png'
-import NavbarMinimal from '../../components/NavbarMinimal'
-import { useState } from 'react'
+import NavbarMinimal from '../../components/NavbarMinimal';
 
 function Signup() {
   const [formData, setFormData] = useState({
@@ -142,4 +141,4 @@ function Signup() {
   )
 }
 
-export default Signup
+export default Signup;
