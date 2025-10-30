@@ -1,15 +1,36 @@
 import logo from '../../assets/logo.png'
 import NavBarMinimal from '../../components/NavBarMinimal';
+import { useNavigate } from 'react-router-dom';
+import { FaArrowLeft } from "react-icons/fa"; 
+
 
 function Signin() {
+   const navigate = useNavigate();
+
   return (
     <div className="flex min-h-screen flex-col bg-white dark:bg-gray-900 transition-colors duration-300">
       
       {/* Navbar */}
       <NavBarMinimal />
 
+
+
       {/* Contenu centré verticalement avec un peu plus de padding-top */}
-      <div className="flex flex-col justify-center flex-1 px-6 py-3 lg:px-8 mt-20">
+      <div className="flex flex-col justify-center flex-1 px-6 py-1 lg:px-8 mt-12">
+
+
+            {/* Bouton Retour */}
+            <div className="px-6 py-4 lg:px-8 mt-4">
+              <button
+                onClick={() => navigate('/')} // redirige vers l'accueil
+                className="flex items-center gap-2 text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-300 
+                          border border-indigo-600 dark:border-indigo-400 rounded-full px-4 py-2 shadow-sm hover:shadow-md transition-all duration-200 font-medium"
+              >
+                <FaArrowLeft size={20} />
+                Retour à l'accueil
+              </button>
+            </div>
+
 
         {/* Logo et titre */}
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -22,6 +43,8 @@ function Signin() {
             Connectez-vous à votre compte
           </h2>
         </div>
+
+        
 
         {/* Formulaire */}
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-sm">

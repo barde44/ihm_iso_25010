@@ -6,12 +6,12 @@ import {
   FaSearch,
   FaSyncAlt,
 } from "react-icons/fa";
-
+import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 
 const Evaluation = () => {
-
+ const navigate = useNavigate();
   return (
     <div className="bg-white dark:bg-[#0F172A] text-white min-h-screen">
 
@@ -38,7 +38,7 @@ const Evaluation = () => {
             <p className="text-gray-600 dark:text-gray-300 mb-6 text-sm md:text-base">
               Remplissez les critères ISO 25010 manuellement pour évaluer la qualité de votre logiciel. Idéal pour les tests personnalisés ou internes.
             </p>
-            <button className="bg-[#8B5CF6] dark:bg-[#A78BFA] text-white px-6 py-3 rounded-xl font-medium hover:bg-[#7C3AED] dark:hover:bg-[#7C3AED] transition-all">
+            <button  onClick={() => navigate("/signin")} className="bg-[#8B5CF6] dark:bg-[#A78BFA] text-white px-6 py-3 rounded-xl font-medium hover:bg-[#7C3AED] dark:hover:bg-[#7C3AED] transition-all">
               Commencer l’évaluation
             </button>
           </div>
@@ -54,7 +54,7 @@ const Evaluation = () => {
             <p className="text-gray-600 dark:text-gray-300 mb-6 text-sm md:text-base">
               Téléversez votre code ou entrez un lien GitHub pour une évaluation automatique selon les métriques de performance, fiabilité et sécurité.
             </p>
-            <button className="bg-[#10B981] dark:bg-[#34D399] text-white px-6 py-3 rounded-xl font-medium hover:bg-[#0EA371] dark:hover:bg-[#059669] transition-all">
+            <button  onClick={() => navigate("/signin")} className="bg-[#10B981] dark:bg-[#34D399] text-white px-6 py-3 rounded-xl font-medium hover:bg-[#0EA371] dark:hover:bg-[#059669] transition-all">
               Lancer l’analyse
             </button>
           </div>

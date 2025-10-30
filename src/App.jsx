@@ -7,6 +7,7 @@ import Dashboard from './pages/Dashboard'
 import Parametre from './pages/Parametres'
 import Signin from './pages/auth/Signin'
 import Signup from './pages/auth/Signup'
+import PrivacyConsent from './components/PrivacyConsent'
 
 function App() {
 
@@ -22,6 +23,8 @@ function App() {
         <Route path="/rapport" element={<RapportResultat />} />
         <Route path="/parametre" element={<Parametre />} />
       </Routes>
+
+      <PrivacyConsent />
     </Router>
    </div>
   )

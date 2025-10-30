@@ -1,9 +1,12 @@
 import logo from '../../assets/logo.png'
 import NavBarMinimal from '../../components/NavBarMinimal';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { FaArrowLeft } from "react-icons/fa"; 
 
 
 function Signup() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     nom: '',
     email: '',
@@ -26,9 +29,21 @@ function Signup() {
   }
 
   return (
-    <div className="flex min-h-full flex-col justify-center px-6 py-20 lg:px-8 bg-white dark:bg-gray-900 transition-colors duration-300">
+    <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 bg-white dark:bg-gray-900 transition-colors duration-300">
       
        <NavBarMinimal />
+
+      {/* Bouton Retour */}
+      <div className="px-6 py-4 lg:px-8 mt-4">
+        <button
+          onClick={() => navigate('/')} // redirige vers l'accueil
+          className="flex items-center gap-2 text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-300 
+                    border border-indigo-600 dark:border-indigo-400 rounded-full px-4 py-2 shadow-sm hover:shadow-md transition-all duration-200 font-medium"
+        >
+          <FaArrowLeft size={20} />
+          Retour à l'accueil
+        </button>
+      </div>
       {/* Logo et titre */}
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
         <img

@@ -13,9 +13,10 @@ import Footer from "../components/Footer";
 import logo from '../assets/logo.png'
 import Newsletter from "../components/Newsletter";
 import Prices from "../components/Prices";
+import { useNavigate } from "react-router-dom";
 
 const Accueil = () => {
-
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-white text-gray-900 dark:bg-[#0F172A] dark:text-white">
 
@@ -32,14 +33,21 @@ const Accueil = () => {
             améliorer la performance, la sécurité et la fiabilité de vos
             applications.
           </p>
-          <div className="flex gap-4">
-            <button className="bg-[#10B981] text-white px-6 py-3 rounded-xl font-medium hover:bg-[#0EA371] transition-all">
-              Évaluation manuelle
-            </button>
-            <button className="bg-[#8B5CF6] text-white px-6 py-3 rounded-xl font-medium hover:bg-[#7C3AED] transition-all">
-              Évaluation automatique
-            </button>
-          </div>
+    <div className="flex gap-4 justify-center mt-6">
+      <button
+        onClick={() => navigate("/signin")}
+        className="bg-[#10B981] text-white px-6 py-3 rounded-xl font-medium hover:bg-[#0EA371] transition-all shadow-md hover:shadow-lg"
+      >
+        Évaluation manuelle
+      </button>
+      <button
+        onClick={() => navigate("/signin")}
+        className="bg-[#8B5CF6] text-white px-6 py-3 rounded-xl font-medium hover:bg-[#7C3AED] transition-all shadow-md hover:shadow-lg"
+      >
+        Évaluation automatique
+      </button>
+    </div>
+
         </div>
 
        <div className="flex justify-center">
