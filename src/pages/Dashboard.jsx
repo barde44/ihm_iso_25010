@@ -21,7 +21,7 @@ import {
   PolarRadiusAxis,
   Radar,
 } from "recharts";
-import Navbar from "../components/Navbar";
+import BoardNavBar from "../components/BoardNavBar";
 import Footer from "../components/Footer";
 import { useTheme } from '../context/ThemeContext'
 
@@ -70,11 +70,13 @@ const color = (light, dark) => (isDarkMode ? dark : light);
   return (
    <div className="min-h-screen bg-white text-gray-900 dark:bg-[#0F172A] dark:text-white">
 
-      <Navbar />
+      <BoardNavBar />
       <main className="pt-32 px-8 max-w-7xl mx-auto">
         <h2 className="text-3xl font-semibold mb-8 text-[#8B5CF6]">
           Tableau de bord ISO 25010
         </h2>
+       <h4 className="text-xl font-semibold mb-8 text-gray-900 dark:text-white">
+         Statistiques du dernier test éffectué </h4>
 
         {/* Cartes de scores */}
         <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 mb-12">

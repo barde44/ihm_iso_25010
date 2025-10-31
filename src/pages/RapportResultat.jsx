@@ -2,7 +2,7 @@
 import { Bar, Radar, Line } from "react-chartjs-2";
 import { Chart, registerables } from "chart.js";
 import { FaDownload, FaShieldAlt, FaBolt, FaCogs } from "react-icons/fa";
-import Navbar from "../components/Navbar";
+import BoardNavBar from "../components/BoardNavBar";
 import Footer from "../components/Footer";
 import { useTheme } from '../context/ThemeContext'
 
@@ -94,19 +94,41 @@ const isDarkMode = theme === 'dark'
 
   return (
     <div className="bg-gray-50 text-gray-900 dark:bg-linear-to-b dark:from-[#0F172A] dark:to-[#1E293B] dark:text-white transition-colors duration-500">
-      <Navbar />
+      <BoardNavBar />
 
       {/* En-tête */}
-      <section className="pt-32 px-8 max-w-7xl mx-auto flex justify-between items-center mb-10">
-        <div>
-          <h2 className="text-3xl font-semibold mb-2">
+      <section className="pt-32 px-6 sm:px-8 max-w-7xl mx-auto flex flex-col sm:flex-row sm:justify-between sm:items-center gap-6 mb-10 text-center sm:text-left">
+        {/* Texte à gauche */}
+        <div className="flex-1">
+          <h2 className="text-2xl sm:text-3xl font-semibold mb-2">
             Rapports et Résultats d’Évaluation
           </h2>
-          <p className="text-gray-600 dark:text-gray-400">
+          <p className="text-gray-600 dark:text-gray-400 text-base sm:text-lg">
             Visualisez les indicateurs de qualité logicielle selon la norme ISO 25010.
           </p>
         </div>
+
+        {/* Sélecteur de projet */}
+        <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-2">
+          <label
+            htmlFor="projet"
+            className="text-gray-700 dark:text-gray-300 font-medium"
+          >
+            Projet :
+          </label>
+          <select
+            id="projet"
+            className="border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all duration-300 w-full sm:w-auto"
+          >
+            <option value="">Sélectionnez un projet</option>
+            <option value="projet1">Projet A — Gestion RH</option>
+            <option value="projet2">Projet B — Suivi de chantier</option>
+            <option value="projet3">Projet C — Application mobile</option>
+          </select>
+        </div>
       </section>
+
+
 
       {/* Résumé global */}
       <section className="bg-white dark:bg-[#1E293B]/70 backdrop-blur-xl rounded-2xl mx-8 max-w-7xl p-8 mb-10 shadow-xl">

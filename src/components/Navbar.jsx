@@ -24,8 +24,11 @@ const isActive = (path) =>
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 hover:opacity-90 transition">
           <img src={logo} alt="Logo ISOQualityApp" className="w-11 h-8 rounded-md object-cover" />
-          <h1 className="font-semibold text-xl text-gray-900 dark:text-white">ISOQualityApp</h1>
+          <h1 className="font-semibold text-xl text-gray-900 dark:text-white hidden sm:block">
+            ISOQuality
+          </h1>
         </Link>
+
 
         {/* Hamburger mobile */}
         <div className="md:hidden flex items-center gap-2">
@@ -39,10 +42,9 @@ const isActive = (path) =>
         {/* Navigation desktop */}
         <nav className="hidden md:flex items-center gap-8 text-gray-700 dark:text-gray-300 text-base font-medium">
           <Link to="/" className={isActive("/")}>Accueil</Link>
-          <Link to="/evaluation" className={isActive("/evaluation")}>Évaluation</Link>
-          <Link to="/dashboard" className={isActive("/dashboard")}>Tableau de bord</Link>
-          <Link to="/rapport" className={isActive("/rapport")}>Rapports / Résultats</Link>
-          <Link to="/parametre" className={isActive("/parametre")}>Paramètres</Link>
+          <Link to="/about" className={isActive("/about")}>A propos</Link>
+          <Link to="/services" className={isActive("/services")}>Services</Link>
+          <Link to="/contact" className={isActive("/contact")}>Contact</Link>
           <Mode />
           <LanguageSelector />
           <div
@@ -60,10 +62,9 @@ const isActive = (path) =>
     {open && (
       <div className="md:hidden bg-white dark:bg-[#0F172A]/95 border-t border-gray-200 dark:border-white/10 py-4 px-4 flex flex-col gap-3">
           <Link to="/" className={isActive("/")}>Accueil</Link>
-          <Link to="/evaluation" className={isActive("/evaluation")}>Évaluation</Link>
-          <Link to="/dashboard" className={isActive("/dashboard")}>Tableau de bord</Link>
-          <Link to="/rapport" className={isActive("/rapport")}>Rapports / Résultats</Link>
-          <Link to="/parametre" className={isActive("/parametre")}>Paramètres</Link>
+          <Link to="/about" className={isActive("/about")}>A propos</Link>
+          <Link to="/services" className={isActive("/services")}>Services</Link>
+          <Link to="/contact" className={isActive("/contact")}>Contact</Link>
         <div className="flex flex-col gap-2">
           <LanguageSelector />
         </div>

@@ -8,18 +8,18 @@ import {
 } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
+import BoardNavBar from "../components/BoardNavBar";
 
 const Evaluation = () => {
  const navigate = useNavigate();
   return (
     <div className="bg-white dark:bg-[#0F172A] text-white min-h-screen">
 
-      <Navbar />
+      <BoardNavBar />
 
       <section className="pt-32 pb-20 px-8 max-w-7xl mx-auto text-center">
         <h2 className="text-4xl font-semibold mb-4 text-black dark:text-white">
-          Choisissez votre mode d’<span className="text-[#8B5CF6]">évaluation</span>
+          Choisissez votre mode d’évaluation
         </h2>
         <p className="text-gray-700 dark:text-gray-400 text-lg mb-12">
           Lancez une analyse manuelle ou automatique de la qualité logicielle
@@ -38,7 +38,7 @@ const Evaluation = () => {
             <p className="text-gray-600 dark:text-gray-300 mb-6 text-sm md:text-base">
               Remplissez les critères ISO 25010 manuellement pour évaluer la qualité de votre logiciel. Idéal pour les tests personnalisés ou internes.
             </p>
-            <button  onClick={() => navigate("/signin")} className="bg-[#8B5CF6] dark:bg-[#A78BFA] text-white px-6 py-3 rounded-xl font-medium hover:bg-[#7C3AED] dark:hover:bg-[#7C3AED] transition-all">
+            <button  onClick={() => navigate("/evaluation/manual")} className="bg-[#8B5CF6] dark:bg-[#A78BFA] text-white px-6 py-3 rounded-xl font-medium hover:bg-[#7C3AED] dark:hover:bg-[#7C3AED] transition-all">
               Commencer l’évaluation
             </button>
           </div>
@@ -54,8 +54,8 @@ const Evaluation = () => {
             <p className="text-gray-600 dark:text-gray-300 mb-6 text-sm md:text-base">
               Téléversez votre code ou entrez un lien GitHub pour une évaluation automatique selon les métriques de performance, fiabilité et sécurité.
             </p>
-            <button  onClick={() => navigate("/signin")} className="bg-[#10B981] dark:bg-[#34D399] text-white px-6 py-3 rounded-xl font-medium hover:bg-[#0EA371] dark:hover:bg-[#059669] transition-all">
-              Lancer l’analyse
+            <button  onClick={() => navigate("/evaluation/automatic")} className="bg-[#10B981] dark:bg-[#34D399] text-white px-6 py-3 rounded-xl font-medium hover:bg-[#0EA371] dark:hover:bg-[#059669] transition-all">
+              Soumettre un projet
             </button>
           </div>
         </div>
@@ -99,22 +99,6 @@ const Evaluation = () => {
       </div>
     </section>
 
-
-      {/* Section de synchronisation */}
-      <section className="max-w-7xl mx-auto text-center mb-20 px-8">
-        <div className="bg-white dark:bg-[#1E293B] border border-[#8B5CF6]/20 dark:border-[#8B5CF6]/20 rounded-2xl p-10 shadow-lg hover:shadow-[#8B5CF6]/30 dark:hover:shadow-[#8B5CF6]/50 transition-all">
-          <div className="flex justify-center text-5xl text-[#8B5CF6] dark:text-[#34D399] mb-4">
-            <FaSyncAlt className="animate-spin-slow" />
-          </div>
-          <h3 className="text-2xl font-semibold mb-2 text-black dark:text-white">
-            Synchronisation en cours
-          </h3>
-          <p className="text-gray-600 dark:text-gray-300">
-            Connectez votre projet pour synchroniser automatiquement les
-            indicateurs ISO 25010.
-          </p>
-        </div>
-      </section>
 
 
        <Footer />

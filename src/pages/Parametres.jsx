@@ -11,7 +11,7 @@ import {
   ChatBubbleLeftRightIcon,
 } from "@heroicons/react/24/outline";
 import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
+import BoardNavBar from "../components/BoardNavBar";
 
 export default function Parametres() {
   const [langue, setLangue] = useState("Français");
@@ -33,7 +33,7 @@ export default function Parametres() {
 
   return (
     <div className="min-h-screen bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
-      <Navbar />
+      <BoardNavBar />
 
       <div className="max-w-6xl mx-auto p-8">
         <h1 className="text-3xl font-bold mb-8">Paramètres</h1>

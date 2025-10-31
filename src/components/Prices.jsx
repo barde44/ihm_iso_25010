@@ -2,10 +2,10 @@ import { CheckIcon } from '@heroicons/react/20/solid'
 
 const tiers = [
   {
-    name: 'Hobby',
+    name: 'Personel',
     id: 'tier-hobby',
     href: '#',
-    priceMonthly: '$29',
+    priceMonthly: '€199',
     description: "The perfect plan if you're just getting started with our product.",
     features: ['25 products', 'Up to 10,000 subscribers', 'Advanced analytics', '24-hour support response time'],
     featured: false,
@@ -14,7 +14,7 @@ const tiers = [
     name: 'Enterprise',
     id: 'tier-enterprise',
     href: '#',
-    priceMonthly: '$99',
+    priceMonthly: '€250',
     description: 'Dedicated support and infrastructure for your company.',
     features: [
       'Unlimited products',
@@ -45,14 +45,14 @@ function Prices() {
         />
       </div>
       <div className="mx-auto max-w-4xl text-center">
-        <h2 className="text-base/7 font-semibold text-indigo-500 dark:text-indigo-400">Pricing</h2>
+        <h2 className="text-base/7 font-semibold text-indigo-500 dark:text-indigo-400">Tarification</h2>
         <p className="mt-2 text-5xl font-semibold tracking-tight text-gray-900 dark:text-white sm:text-6xl">
-          Choose the right plan for you
+         Choisissez le forfait qui vous convient
         </p>
       </div>
       <p className="mx-auto mt-6 max-w-2xl text-center text-lg font-medium text-gray-700 dark:text-gray-300 sm:text-xl/8">
-        Choose an affordable plan that’s packed with the best features for engaging your audience, creating customer
-        loyalty, and driving sales.
+        Choisissez un forfait abordable qui comprend les meilleures fonctionnalités pour susciter l'intérêt de votre public, fidéliser vos clients
+        et stimuler vos tests.
       </p>
       <div className="mx-auto mt-16 grid max-w-lg grid-cols-1 items-center gap-y-6 sm:mt-20 sm:gap-y-0 lg:max-w-4xl lg:grid-cols-2">
         {tiers.map((tier, tierIdx) => (
@@ -87,7 +87,7 @@ function Prices() {
                 {tier.priceMonthly}
               </span>
               <span className={classNames(tier.featured ? 'text-gray-400' : 'text-gray-500 dark:text-gray-400', 'text-base')}>
-                /month
+                /mois
               </span>
             </p>
             <p className={classNames(tier.featured ? 'text-gray-300' : 'text-gray-600 dark:text-gray-300', 'mt-6 text-base/7')}>
@@ -123,7 +123,7 @@ function Prices() {
     'mt-8 block rounded-md px-3.5 py-2.5 text-center text-sm font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 sm:mt-10'
   )}
 >
-  Get started today
+  Commencez dès aujourd'hui
 </a>
 
 
