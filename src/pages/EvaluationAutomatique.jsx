@@ -3,7 +3,7 @@ import Footer from "../components/Footer";
 import BoardNavBar from "../components/BoardNavBar";
 import { useNavigate } from "react-router-dom";
 
-const SoumissionProjet = () => {
+const EvaluationAutomatique = () => {
   const navigate = useNavigate();
   const [showPopup, setShowPopup] = useState(false);
 
@@ -22,12 +22,10 @@ const SoumissionProjet = () => {
         <button
           onClick={() => navigate("/evaluation")}
           className="
-            fixed top-[90px] left-6 z-50
-            bg-white text-gray-800 font-semibold
-            px-6 py-2 rounded-lg shadow-lg
-            hover:bg-gray-100 hover:shadow-gray-400/40
-            transition-all duration-300
-          ">
+            fixed top-[90px] left-6 z-50bg-gray-200 dark:bg-[#1E293B]
+            hover:bg-gray-300 dark:hover:bg-[#334155]
+            text-gray-800 dark:text-gray-100 font-semibold px-6 py-2 
+            rounded-lg shadow-md hover:shadow-[#8B5CF6]/20 transition-all duration-300">
           ← Retour
         </button>
 
@@ -137,4 +135,4 @@ const SoumissionProjet = () => {
   );
 };
 
-export default SoumissionProjet;
+export default EvaluationAutomatique;

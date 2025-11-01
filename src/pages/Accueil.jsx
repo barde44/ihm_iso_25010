@@ -35,13 +35,13 @@ const Accueil = () => {
           </p>
     <div className="flex gap-4 justify-center mt-6">
       <button
-        onClick={() => navigate("/signin")}
+        onClick={() => navigate("/login")}
         className="bg-[#10B981] text-white px-6 py-3 rounded-xl font-medium hover:bg-[#0EA371] transition-all shadow-md hover:shadow-lg"
       >
         Évaluation manuelle
       </button>
       <button
-        onClick={() => navigate("/signin")}
+        onClick={() => navigate("/login")}
         className="bg-[#8B5CF6] text-white px-6 py-3 rounded-xl font-medium hover:bg-[#7C3AED] transition-all shadow-md hover:shadow-lg"
       >
         Évaluation automatique

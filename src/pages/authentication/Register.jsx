@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { FaArrowLeft } from "react-icons/fa"; 
 
 
-function Signup() {
+function Register() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     nom: '',
@@ -157,7 +157,7 @@ function Signup() {
   <p className="mt-6 text-center text-sm text-gray-500 dark:text-gray-400">
     Vous avez un compte?{' '}
     <a
-      href="/signin"
+      href="/login"
       className="font-semibold text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-300"
     >
       Connectez vous un ici
@@ -169,4 +169,4 @@ function Signup() {
   )
 }
 
-export default Signup;
+export default Register;

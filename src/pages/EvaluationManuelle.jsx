@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import BoardNavBar from "../components/BoardNavBar";
 import Footer from "../components/Footer";
+import { AiOutlineSync } from "react-icons/ai";
 
 const EvaluationManuelle = () => {
   const navigate = useNavigate();
@@ -88,9 +89,9 @@ const EvaluationManuelle = () => {
               ))}
             </select>
 
-            <button className="w-full bg-[#8B5CF6] hover:bg-[#7C3AED] transition rounded-md py-2 text-sm font-semibold text-white">
-              Sauvegarder
-            </button>
+      <div className="text-[#8B5CF6] hover:text-[#7C3AED] transition cursor-pointer">
+  <AiOutlineSync size={24} />
+</div>
           </div>
         ))}
       </div>
